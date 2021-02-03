@@ -9,6 +9,7 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
 {
     public class ClientsController : Controller
     {
+
         // GET: ClientsController
         public ActionResult Index()
         {
