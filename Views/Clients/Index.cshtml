@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Models.Clients>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clients List</h1>
+<p>
+    <a asp-action="Create">Create new client</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Description)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelitem => person.Name)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(modelitem => person.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(modelitem => person.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(modelitem => person.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Client information", "Edit", new { name = person.Name })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
