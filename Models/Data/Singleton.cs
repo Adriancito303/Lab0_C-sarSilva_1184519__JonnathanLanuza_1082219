@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Models
+namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Models.Data
 {
     public sealed class Singleton
     {

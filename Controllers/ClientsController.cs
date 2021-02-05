@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Models.Data;
+
 namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
 {
     public class ClientsController : Controller
     {
-
         // GET: ClientsController
         public ActionResult Index()
         {
@@ -17,9 +17,10 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
         }
 
         // GET: ClientsController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string Name)
         {
-            return View();
+            var lukeClients = Singleton.Instance.ClientsList.Find(x => x.Name == Name);
+            return View(lukeClients);
         }
 
         // GET: ClientsController/Create
@@ -35,14 +36,18 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
         {
             try
             {
-                var Clientnew = new Models.Clients
+                var newClients = new Models.Clients
                 {
                     Name = Dclients["Name"],
                     Lastname = Dclients["Lastname"],
                     PhoneNumber = Convert.ToInt32(Dclients["PhoneNumber"]),
                     Description = Dclients["Description"]
                 };
-                Singleton.Instance.ClientsList.Add(Clientnew);
+                Singleton.Instance.ClientsList.Add(newClients);
+                //if (Nm > 0)
+                //{
+                //    //Sort
+                //}
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -52,7 +57,7 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
         }
 
         // GET: ClientsController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string Name)
         {
             return View();
         }
@@ -60,7 +65,7 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
         // POST: ClientsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string Name, IFormCollection collection)
         {
             try
             {
@@ -73,7 +78,7 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
         }
 
         // GET: ClientsController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string Name)
         {
             return View();
         }
@@ -81,7 +86,7 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
         // POST: ClientsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(string Name, IFormCollection collection)
         {
             try
             {
