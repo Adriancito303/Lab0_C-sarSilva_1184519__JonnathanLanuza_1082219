@@ -10,6 +10,25 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
 {
     public class ClientsController : Controller
     {
+        void bubble (List<String> A, int n)
+        {
+            int i, j;
+            String aux;
+            for (i = 0; i < n-1; i++)
+            {
+                for (j = i+1; j < n; j++)
+                {
+                    if (A[i] != A[j])
+                    {
+                        aux = A[i];
+                        A[i] = A[j];
+                        A[j] = aux;
+                    }
+                }
+            }
+        }
+        List<String> Clistt = new List<string>();
+        int cont = 0;
         // GET: ClientsController
         public ActionResult Index()
         {
@@ -44,7 +63,12 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
                     Description = Dclients["Description"]
                 };
                 Singleton.Instance.ClientsList.Add(newClients);
-                //if (Nm > 0)
+                Clistt.Add(newClients.Name);
+                IOrderedEnumerable<String> ListFC = Clistt.OrderBy(x => x.Length);
+                //Singleton.Instance.ClientsList.Add(newClients);
+                //cont++;
+                //bubble(Clistt, cont);
+                //if (Nm > cont)
                 //{
                 //    //Sort
                 //}
