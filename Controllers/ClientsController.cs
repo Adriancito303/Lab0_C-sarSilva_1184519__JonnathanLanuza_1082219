@@ -27,6 +27,7 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
                 }
             }
         }
+
         List<String> Clistt = new List<string>();
         int cont = 0;
         // GET: ClientsController
@@ -68,10 +69,6 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
                 //Singleton.Instance.ClientsList.Add(newClients);
                 //cont++;
                 //bubble(Clistt, cont);
-                //if (Nm > cont)
-                //{
-                //    //Sort
-                //}
                 return RedirectToAction(nameof(Index));
             }
             catch
