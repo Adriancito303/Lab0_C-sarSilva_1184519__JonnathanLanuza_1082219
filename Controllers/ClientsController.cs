@@ -64,11 +64,8 @@ namespace Lab0_CésarSilva_1184519__JonnathanLanuza_1082219.Controllers
                     Description = Dclients["Description"]
                 };
                 Singleton.Instance.ClientsList.Add(newClients);
-                Clistt.Add(newClients.Name);
-                IOrderedEnumerable<String> ListFC = Clistt.OrderBy(x => x.Length);
-                //Singleton.Instance.ClientsList.Add(newClients);
-                //cont++;
-                //bubble(Clistt, cont);
+                //Clistt.Add(newClients.Name);
+                //IOrderedEnumerable<String> ListFC = Clistt.OrderBy(x => x.Length);
                 return RedirectToAction(nameof(Index));
             }
             catch
